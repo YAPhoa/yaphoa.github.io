@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<article class="page post">
+  <h1>{{ page.title | escape }}</h1>
+  <p class="post-date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time></p>
+{{ content }}
+  <p class="post-end" aria-hidden="true">∎</p>
+  {% if page.previous or page.next %}
+  <nav class="post-nav" aria-label="Other writings">
+    {% if page.previous %}
+    <p class="post-nav-previous">
+      <span class="label">Previous</span>
+      <a href="{{ page.previous.url | relative_url }}">{{ page.previous.title | escape }}</a>
+    </p>
+    {% endif %}
+    {% if page.next %}
+    <p class="post-nav-next">
+      <span class="label">Next</span>
+      <a href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }}</a>
+    </p>
+    {% endif %}
+  </nav>
+  {% endif %}
+</article>

@@ -1,0 +1,8 @@
+title: Yohanes Alfredo Phoa
+description: About Yohanes Alfredo Phoa, and things he has written.
+url: https://yaphoa.github.io
+permalink: /writings/:title/
+plugins:
+  - jekyll-feed
+exclude:
+  - README.md

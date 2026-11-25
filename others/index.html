@@ -1,0 +1,22 @@
+---
+layout: default
+title: Others
+projects:
+  - name: Theatrhythm Final Bar Line on PC
+    url: https://github.com/YAPhoa/theatrhythm-fbl-pc
+    description: Unofficial port, for those who are interested to play this on PC.
+---
+<div class="page">
+  <h1>Others</h1>
+  {% if page.projects %}
+  <h2>Hobby projects</h2>
+  <ul class="entries">
+    {% for project in page.projects %}
+    <li>
+      <a href="{{ project.url }}">{{ project.name | escape }}</a>
+      {% if project.description %}<span class="detail">{{ project.description | escape }}</span>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>
