@@ -3,7 +3,7 @@
 :root {
   --ink: #000;
   --paper: #fff;
-  --measure: 36rem;
+  --measure: 46rem;
   --page: 62rem;
   --gutter: 1.25rem;
 }
@@ -493,5 +493,194 @@ td {
 
   .post-list li + li {
     margin-top: 1.1rem;
+  }
+}
+
+/* Charts inside posts: black on white, matching the rest of the site. */
+
+.post figure {
+  margin: 1.75rem 0;
+}
+
+.post figcaption {
+  margin-bottom: 0.65rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 2.5rem;
+  margin: 1.75rem 0;
+}
+
+.pair figure {
+  margin: 0;
+}
+
+.squares svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.squares path {
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+.squares path.slop {
+  fill: var(--ink);
+  stroke: var(--ink);
+}
+
+.squares path.mention {
+  fill: url(#sq-hatch);
+  stroke: var(--ink);
+}
+
+.squares path.empty {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-opacity: 0.22;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.889rem;
+}
+
+.legend li + li {
+  margin-top: 0;
+}
+
+.legend.stacked {
+  display: block;
+  margin: 0.75rem 0 0;
+}
+
+.legend.stacked li + li {
+  margin-top: 0.2rem;
+}
+
+.sw {
+  display: inline-block;
+  width: 0.72em;
+  height: 0.72em;
+  margin-right: 0.45em;
+  vertical-align: -0.05em;
+  border: 1px solid var(--ink);
+}
+
+.sw.solid,
+.bar i.solid {
+  background: var(--ink);
+}
+
+.sw.hatch,
+.bar i.hatch {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--ink) 0 1.5px,
+    var(--paper) 1.5px 4.5px
+  );
+}
+
+.sw.outline,
+.bar i.outline {
+  background: var(--paper);
+}
+
+.sw.empty {
+  background: var(--paper);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.chart .rows {
+  border-top: 1px solid var(--ink);
+}
+
+.chart .row {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 0.25rem 1rem;
+  align-items: center;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--ink);
+}
+
+.pair .chart .row {
+  grid-template-columns: 7.25rem 1fr;
+  gap: 0.2rem 0.75rem;
+}
+
+.chart .cat {
+  font-size: 0.889rem;
+  line-height: 1.25;
+}
+
+.chart .bars {
+  display: grid;
+  gap: 3px;
+}
+
+.chart .bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 1.15rem;
+}
+
+.chart .bar i {
+  display: block;
+  flex-shrink: 0;
+  height: 0.85rem;
+  min-width: 2px;
+  width: calc(var(--v) * (100% - 7.5rem));
+  border: 1px solid var(--ink);
+}
+
+.pair .chart .bar i {
+  width: calc(var(--v) * (100% - 6.25rem));
+}
+
+.chart .bar b {
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.chart .note {
+  margin: 0.65rem 0 0;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 40rem) {
+  .pair {
+    grid-template-columns: 1fr;
+  }
+
+  .pair .chart .row {
+    grid-template-columns: 9rem 1fr;
+    gap: 0.25rem 1rem;
+  }
+
+  .pair .chart .bar i {
+    width: calc(var(--v) * (100% - 7.5rem));
+  }
+}
+
+@media (max-width: 28rem) {
+  .chart .row,
+  .pair .chart .row {
+    grid-template-columns: 1fr;
   }
 }

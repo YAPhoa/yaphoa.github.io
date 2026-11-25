@@ -3,6 +3,9 @@
 Personal site, built by GitHub Pages with Jekyll. Three pages: About (`index.md`), Writings
 (`writings/index.html`) and Others (`others/index.html`); each writing gets its own page.
 
+Every push to `main` builds the site with Jekyll and deploys it to GitHub Pages
+(`.github/workflows/pages.yml`). Progress and errors show under the repository's Actions tab.
+
 ## Edit the About page
 
 Everything is in `index.md`: the fields at the top (name, photo, role, links, interests,
